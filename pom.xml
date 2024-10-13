@@ -13,7 +13,7 @@
 	<artifactId>demo-hexagonal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo-hexagonal</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Um modelo academico de arquitetura Hexagonal baseado em micro serviços reais</description>
 
 	<properties>
 		<java.version>21</java.version>
