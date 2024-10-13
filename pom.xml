@@ -46,7 +46,6 @@
 		</dependency>
 
 		<!-- H2 Memory Database -->
-		<!-- Banco de Dados H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
