@@ -1,4 +1,4 @@
-package br.senac.sp.archetype.hexagonal.dataprovider.database.repository.adapter.mapper;
+package br.senac.sp.archetype.hexagonal.dataprovider.database.mapper;
 
 import br.senac.sp.archetype.hexagonal.core.domain.Cliente;
 import br.senac.sp.archetype.hexagonal.dataprovider.database.entity.ClienteEntity;
@@ -10,9 +10,9 @@ import org.mapstruct.factory.Mappers;
         Cliente.class,
         ClienteEntity.class
 })
-public interface ClienteEntityMapper {
+public interface ClienteRepositoryMapper {
 
-    ClienteEntityMapper INSTANCE = Mappers.getMapper(ClienteEntityMapper.class);
+    ClienteRepositoryMapper INSTANCE = Mappers.getMapper(ClienteRepositoryMapper.class);
 
     ClienteEntity toEntity(Cliente cliente);
 

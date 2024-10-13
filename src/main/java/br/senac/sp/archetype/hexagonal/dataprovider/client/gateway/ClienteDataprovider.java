@@ -1,7 +1,7 @@
-package br.senac.sp.archetype.hexagonal.dataprovider.client.adapter;
+package br.senac.sp.archetype.hexagonal.dataprovider.client.gateway;
 
 import br.senac.sp.archetype.hexagonal.core.domain.Clientes;
-import br.senac.sp.archetype.hexagonal.dataprovider.client.ClienteWebData;
+import br.senac.sp.archetype.hexagonal.core.gateway.client.ClienteWebData;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 

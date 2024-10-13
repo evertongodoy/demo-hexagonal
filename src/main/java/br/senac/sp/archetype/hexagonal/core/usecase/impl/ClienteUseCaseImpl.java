@@ -4,8 +4,9 @@ import br.senac.sp.archetype.hexagonal.core.domain.Cliente;
 import br.senac.sp.archetype.hexagonal.core.domain.Clientes;
 import br.senac.sp.archetype.hexagonal.core.exceptions.ClienteNaoEcontradoException;
 import br.senac.sp.archetype.hexagonal.core.usecase.ClienteUseCase;
-import br.senac.sp.archetype.hexagonal.dataprovider.client.ClienteWebData;
-import br.senac.sp.archetype.hexagonal.dataprovider.database.repository.adapter.ClienteRepositoryAdapter;
+import br.senac.sp.archetype.hexagonal.core.gateway.database.ClienteGateway;
+import br.senac.sp.archetype.hexagonal.core.gateway.client.ClienteWebData;
+import br.senac.sp.archetype.hexagonal.dataprovider.database.gateway.ClienteGatewayImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -13,18 +14,18 @@ import java.util.Optional;
 @Service
 public class ClienteUseCaseImpl implements ClienteUseCase {
 
-    private final ClienteRepositoryAdapter repository;
+    private final ClienteGateway clienteGateway;
     private final ClienteWebData clienteWebData;
 
-    public ClienteUseCaseImpl(final ClienteRepositoryAdapter repository,
+    public ClienteUseCaseImpl(final ClienteGatewayImpl clienteGateway,
                               final ClienteWebData clienteWebData) {
-        this.repository = repository;
+        this.clienteGateway = clienteGateway;
         this.clienteWebData = clienteWebData;
     }
 
     @Override
     public Cliente getClienteById(String id) {
-        Optional<Cliente> clienteOptional = repository.findById(id);
+        Optional<Cliente> clienteOptional = clienteGateway.findById(id);
         return clienteOptional.orElseThrow(() -> new ClienteNaoEcontradoException("Cliente nao encontrado"));
     }
 
@@ -35,12 +36,12 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
 
     @Override
     public void criarCliente(Cliente cliente) {
-        repository.criarCliente(cliente);
+        clienteGateway.criarCliente(cliente);
     }
 
     @Override
     public Clientes getTodosClientesDB() {
-        return repository.findAllDatabase();
+        return clienteGateway.findAllDatabase();
     }
 
 }

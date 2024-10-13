@@ -1,4 +1,4 @@
-package br.senac.sp.archetype.hexagonal.dataprovider.client;
+package br.senac.sp.archetype.hexagonal.core.gateway.client;
 
 import br.senac.sp.archetype.hexagonal.core.domain.Clientes;
 
